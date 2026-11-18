@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07060a">
+  <title>Heartbeat</title>
+  <link rel="preload" href="fonts/Outfit-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+        (function() {
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+            });
+            document.addEventListener("keydown", function(e) {
+                const key = e.key;
+                const ctrl = e.ctrlKey || e.metaKey;
+                const shift = e.shiftKey;
+                if (ctrl && key === "u") {
+                    e.preventDefault();
+                    return;
+                }
+                if (key === "F12") {
+                    e.preventDefault();
+                    return;
+                }
+                if (ctrl && shift && key === "I") {
+                    e.preventDefault();
+                    return;
+                }
+                if (ctrl && shift && key === "J") {
+                    e.preventDefault();
+                    return;
+                }
+                if (ctrl && shift && key === "C") {
+                    e.preventDefault();
+                    return;
+                }
+                if (ctrl && key === "s") {
+                    e.preventDefault();
+                    return;
+                }
+            });
+        })();
+   </script>
+  
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="head">
+      <h1 id="fullName">DOMIM</h1>
+      <p class="counter"><span id="days" class="days">0</span><span class="unit">days</span></p>
+    </header>
+
+    <section class="stage" aria-label="Heartbeat portrait">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="ring r1" aria-hidden="true"></div>
+      <div class="ring r2" aria-hidden="true"></div>
+      <div class="frame" role="img" aria-label="Portrait"></div>
+    </section>
+
+    <footer class="controls">
+      <button id="toggle" class="toggle" type="button" aria-label="Play heartbeat">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff6b7d"/>
+              <stop offset="1" stop-color="#d11f35"/>
+            </linearGradient>
+          </defs>
+          <path class="heart" fill="url(#hg)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <path class="shine" fill="rgba(255,255,255,.22)" d="M6.2 6.1C7 5 8.4 4.6 9.6 5.2 8 5.2 6.8 6.2 6.3 7.6 6 7 6 6.5 6.2 6.1z"/>
+          <g class="i-play" fill="#fff"><path d="M10.1 8.4v6.2a.6.6 0 0 0 .9.5l5.1-3.1a.6.6 0 0 0 0-1l-5.1-3.1a.6.6 0 0 0-.9.5z"/></g>
+          <g class="i-pause" fill="#fff"><rect x="9.2" y="8.3" width="2" height="6.8" rx=".7"/><rect x="12.8" y="8.3" width="2" height="6.8" rx=".7"/></g>
+        </svg>
+      </button>
+      <p id="hint" class="hint" hidden>Touch or click anywhere to hear it</p>
+    </footer>
+  </main>
+
+  <audio id="heartbeat" src="heartbeat.mp3" loop preload="auto" playsinline></audio>
+
+  <!-- ✏️ EDIT HERE -->
+  <script>
+    window.CONFIG = {
+      fullName:  "DOMIM",     // name shown above the image
+      startDate: "2026/feb/18",   // format: YYYY/mon/DD  (e.g. 1990/mar/05) — numeric month also works: 1990/3/5
+      bpm:       72               // visual beats per minute — match it to your mp3
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
